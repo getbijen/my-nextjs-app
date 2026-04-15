@@ -1,0 +1,10 @@
+services:
+  app:
+    image: node:22-slim
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      # This forces it to ONLY listen to your own computer (Localhost)
+      - "127.0.0.1:3000:3000"
+    command: sh -c "corepack enable pnpm && pnpm dev"
